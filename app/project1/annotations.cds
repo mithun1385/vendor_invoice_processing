@@ -23,6 +23,21 @@ annotate service.vendors with @(
                 Label : 'address',
                 Value : address,
             },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'CatalogService.approveinvoice',
+                Label : 'Approve product',
+            },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'CatalogService.approval',
+                Label : 'Approval',
+            },
+            {
+                $Type:'UI.DataFieldForAction',
+                Action:'CatalogService.payment',
+                Label:'Payment'
+            }
         ],
     },
     UI.Facets : [
@@ -79,25 +94,105 @@ annotate service.vendors with @(
             Value : address,
         },
     ],
+    UI.Identification : [
+        
+    ],
 );
 
 annotate service.purchaseOrders with @(
     UI.LineItem #purchaseorder : [
+        {
+            $Type : 'UI.DataField',
+            Label : 'poNumber',
+            Value :poNumber,
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'OrderDate',
+            Value:OrderDate
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'totalAmount',
+            Value:totalAmount
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'status',
+            Value:status
+        },
     ]
 );
 
 annotate service.invoices with @(
     UI.LineItem #Invoice : [
+
+        {
+            $Type : 'UI.DataField',
+            Label : 'invoiceNumber',
+            Value : invoiceNumber,
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'invoiceDate',
+            Value:invoiceDate
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'totalAmount',
+            Value:totalAmount
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'status',
+            Value:status
+        },
     ]
 );
 
 annotate service.approvals with @(
     UI.LineItem #Approval : [
+        {
+            $Type : 'UI.DataField',
+            Label : 'approverName',
+            Value : approverName,
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'approvalStatus',
+            Value:approvalStatus
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'comments',
+            Value:comments
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'approvalDate',
+            Value:approvalDate
+        },
     ]
 );
 
 annotate service.payments with @(
     UI.LineItem #Payment : [
+
+        {
+            $Type : 'UI.DataField',
+            Label : 'payamount',
+            Value : payamount,
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'paymentDate',
+            Value:paymentDate
+        },
+        {
+            $Type:'UI.DataField',
+            Label:'paymentStatus',
+            Value:paymentStatus
+        },
     ]
 );
 

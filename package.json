@@ -2,15 +2,30 @@
   "name": "vendor_invoice_processing",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cds": "^9"
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9.9.1",
+    "@sap/hana-client": "^2.28.20",
+    "@sap/xsenv": "^6.2.1",
+    "@sap/xssec": "^4.13.0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
-    "start": "cds-serve",
+    "start": "npx cds run",
     "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana"
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
   },
   "private": true,
   "workspaces": [
